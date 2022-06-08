@@ -1,0 +1,47 @@
+package one.digitalinnovation.collections
+data class Funcionario(
+    val nome: String,
+    val salario: Double,
+    val tipoContratacao: String
+) {
+    override fun toString(): String =
+        """
+            Nome:    $nome
+            Salário: $salario
+        """.trimIndent()
+}
+
+class Repositorio<T> {
+    private val map = mutableMapOf<String, T>()
+
+    fun create(id: String, value: T) {
+        map[id] = value
+    }
+
+    fun remove(id: String) = map.remove(id)
+
+    fun findById(id: String) = map[id]
+
+    fun findAll() = map.values
+}
+
+fun main() {
+    val roni = Funcionario("Roni", 3000.0, "CLT")
+    val gabriel = Funcionario("Gabriel", 2500.0, "PJ")
+    val passos = Funcionario("Passos", 8000.0, "CLT")
+
+    val repositorio = Repositorio<Funcionario>()
+
+    repositorio.create(roni.nome, roni)
+    repositorio.create(gabriel.nome, gabriel)
+    repositorio.create(passos.nome, passos)
+
+    println(repositorio.findById(passos.nome))
+
+    println("----------------------")
+    repositorio.findAll().forEach { println(it) }
+
+    println("----------------------")
+    repositorio.remove(passos.nome)
+    repositorio.findAll().forEach { println(it) }
+}
