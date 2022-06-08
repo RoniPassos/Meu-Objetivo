@@ -4,12 +4,12 @@ fun main() {
     val pair: Pair<String, Double> = Pair("Roni", 1750.0)
     val map1= mapOf(pair)
 
-    map1.forEach { (k, v) -> println("Chave: $k - Valor: $v") }
+    map1.forEach { (x, y) -> println("Chave: $x - Valor: $y") }
 
     val map2 = mapOf(
         "Gabriel" to 3420.0,
         "Passos" to 9000.0
     )
 
-    map2.forEach { (k, v) -> println("Chave: $k - Valor: $v") }
+    map2.forEach { (x, y) -> println("Chave: $x - Valor: $y") }
 }
