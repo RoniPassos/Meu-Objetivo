@@ -20,7 +20,7 @@ fun main() {
     println(salarios.count { it in 200.0..8000.0 })
 
     println("--------------------")
-    println(salarios.find { it == 2250.0 })
+    println(salarios.find { it == 7900.0})
     println(salarios.find { it == 5900.0 })
 
     println("--------------------")
