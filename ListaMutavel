@@ -1,0 +1,43 @@
+package one.digitalinnovation.collections
+data class Funcionario(
+    val nome: String,
+    val salario: Double,
+    val tipoContratacao: String
+) {
+    override fun toString(): String =
+        """
+            Nome:    $nome
+            Salário: $salario
+        """.trimIndent()
+}
+
+fun main() {
+    val roni = Funcionario("Roni", 4500.0, "CLT")
+    val gabriel = Funcionario("Gabriel", 15000.0, "PJ")
+    val passos = Funcionario("Passos", 2000.0, "CLT")
+
+    println("--------- LIST ---------")
+    val funcionarios = mutableListOf(roni, gabriel,passos)
+    funcionarios.forEach { println(it) }
+
+    println("------------------")
+    funcionarios.add(gabriel)
+    funcionarios.forEach { println(it) }
+
+    println("------------------")
+    funcionarios.remove(roni)
+    funcionarios.forEach { println(it) }
+
+    println("--------- SET ---------")
+    val funcionarioSet = mutableSetOf(gabriel)
+    funcionarioSet.forEach { println(it) }
+
+    println("------------------")
+    funcionarioSet.add(gabriel)
+    funcionarioSet.add(passos)
+    funcionarioSet.forEach { println(it) }
+
+    println("------------------")
+    funcionarioSet.remove(passos)
+    funcionarioSet.forEach { println(it) }
+}
